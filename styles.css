@@ -4,16 +4,23 @@
     padding: 0;
     margin: 0;
 }
-body{
-    font-size: 16px;
-    font-family: 'Outfit', sans-serif;
-    background-color: var(--LightGray);
-}
+
 :root{
 --White: hsl(0, 0%, 100%);
 --LightGray: hsl(212, 45%, 89%);
 --GrayishBlue: hsl(220, 15%, 55%);
 --DarkBlue: hsl(218, 44%, 22%);
+}
+body{
+    font-size: 16px;
+    font-family: 'Outfit', sans-serif;
+    background-color: var(--LightGray);
+}
+.cards-container{
+    display: flex;
+    width: 1200px;
+    margin: 0 auto;
+
 }
 .card-container{
     background-color: var(--White);
@@ -22,6 +29,13 @@ body{
     margin: 60px auto;
     border-radius: 16px;
     padding: 16px;
+    transition:300ms;
+}
+.card-container:hover{
+    cursor: pointer;
+    box-shadow: 10px 10px 10px;
+    transition: 300ms;
+    margin-top: 50px;
 }
 .image-container{
     background-image: url(./images/image-qr-code.png);
@@ -30,18 +44,21 @@ body{
     height: 288px;
     border-radius: 8px;
     margin-bottom:24px;
+    animation: upCenter 500ms none;
 }
 h1{
     font-size: 23px;
     margin-bottom: 16px;
     text-align: center;
     padding: 0 20px;
+    animation: leftCenter 500ms none;
 }
 p{
     font-size: 16px;
     color: var(--GrayishBlue);
     text-align: center;
     padding: 0 20px;
+    animation: rightCenter 500ms none;
 }
 /* -------footer------- */
 .attribution { 
@@ -49,4 +66,31 @@ p{
 }
 .attribution a { 
     color: hsl(228, 45%, 44%); 
+}
+/* -------animaciones-------- */
+@keyframes upCenter {
+    /* al incio empieza en -500 arriba */
+    0%{
+        transform: translateY(-500px);
+    }
+    /* al final regres a donde estaba */
+    100%{
+        transform: translateY(0px);
+    }
+}
+@keyframes leftCenter {
+    0%{
+        transform: translateX(-1000px);
+    }
+    100%{
+        transform: translateX(0px);
+    }
+}
+@keyframes rightCenter {
+    0%{
+        transform: translateX(1000px);
+    }
+    100%{
+        transform: translateX(0px);
+    }
 }
